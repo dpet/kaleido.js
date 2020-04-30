@@ -1,0 +1,17 @@
+
+#control{
+	position: absolute;
+	top: 20px;
+	right: 40px;
+	display: flex;
+	flex-flow: column;
+	width: 200px;
+}
+
+#control > *{
+	margin-bottom: 20px;
+}
+
+.button{
+
+}

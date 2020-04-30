@@ -22,6 +22,13 @@ function kaleido_start(parent_div, image_path, config = {}){
 	start()
 
 	function create_canvases(){
+		holder = document.createElement('div');
+		holder.style.width='100%';
+		holder.style.height='100%';
+		holder.style.display='flex';
+		holder.style.flexWrap='wrap';
+		parent_div.appendChild(holder);
+
 		for (let a=0; a<total_images; a++){
 			canvas = document.createElement('canvas')
 			let context = canvas.getContext("2d")
@@ -29,7 +36,7 @@ function kaleido_start(parent_div, image_path, config = {}){
 			canvas.height = canvas_height
 
 			canvasses.push({canvas, context});
-			parent_div.appendChild(canvas);
+			holder.appendChild(canvas);
 		}
 	}
 
