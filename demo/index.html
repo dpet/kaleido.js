@@ -8,59 +8,70 @@
 </head>
 <body>
 
-	<div id="kaleido_1" style="width:100%; height:100vh;">
-		<div id="control">
-			
-			<div>
-				<label class="label">Image</label>
-				<div class="select is-fullwidth">
-				  <select>
-				    <option value="Argentina">Argentina</option>
-				    <option value="Bolivia">Bolivia</option>
-				    <option value="Brazil">Brazil</option>
-				  </select>
-				</div>
-			</div>
+	<div id="kaleido_1" style="width:100%; height:100vh;"></div>
 
-			<div class="field">
-			  <label class="label">Horizontal #</label>
-			  <div class="control">
-			    <input class="input" type="text" placeholder="2">
-			  </div>
+	<form id="control_form">
+		<div>
+			<label class="label">Image</label>
+			<div class="select is-fullwidth">
+			  <select id="image_select">
+			    <option value="board">board</option>
+			    <option value="cloud">cloud</option>
+			    <option value="color">color</option>
+			    <option value="flower">flower</option>
+			    <option value="flower2">flower2</option>
+			    <option value="light">light</option>
+			    <option value="liquid">liquid</option>
+			    <option value="neon">neon</option>
+			    <option value="space">space</option>
+			    <option value="stairs">stairs</option>
+			    <option value="swirl">swirl</option>
+			    <option value="swirl2">swirl2</option>
+			    <option value="tower">tower</option>
+			  </select>
 			</div>
-
-			<div class="field">
-			  <label class="label">Vertical #</label>
-			  <div class="control">
-			    <input class="input" type="text" placeholder="2">
-			  </div>
-			</div>
-
-			<div class="field">
-			  <label class="label">Speed</label>
-			  <div class="control">
-			    <input class="input" type="text" placeholder="1">
-			  </div>
-			</div>
-
-			<div class="field">
-			  <label class="label">Zoom</label>
-			  <div class="control">
-			    <input class="input" type="text" placeholder="1.6">
-			  </div>
-			</div>
-
-			<div class="field">
-			  <label class="label">Rotation Start</label>
-			  <div class="control">
-			    <input class="input" type="text" placeholder="angle">
-			  </div>
-			</div>
-			
-			<br>
-			<button class="button">Apply</button>
 		</div>
-	</div>
+
+		<div class="field">
+		  <label class="label">Horizontal #</label>
+		  <div class="control">
+		    <input class="input" id="horizontal_num" type="text" placeholder="2" value="4">
+		  </div>
+		</div>
+
+		<div class="field">
+		  <label class="label">Vertical #</label>
+		  <div class="control">
+		    <input class="input" id="vertical_num" type="text" placeholder="2" value="2">
+		  </div>
+		</div>
+
+		<div class="field">
+		  <label class="label">Speed</label>
+		  <div class="control">
+		    <input class="input" id="speed_input" type="text" placeholder="1" value="1">
+		  </div>
+		</div>
+
+		<div class="field">
+		  <label class="label">Zoom</label>
+		  <div class="control">
+		    <input class="input" id="zoom_input" type="text" placeholder="1.6" value="1.6">
+		  </div>
+		</div>
+
+		<div class="field">
+		  <label class="label">Start Angle</label>
+		  <div class="control">
+		    <input class="input" id="start_angle" type="text" placeholder="angle" value="0">
+		  </div>
+		</div>
+		
+		<br>
+		<button class="button" id="apply_button" type="submit">Apply</button>
+	</form>
+
+	<div id="dot"></div>
 
 
     <script src="../kaleido.js"></script>

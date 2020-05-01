@@ -1,22 +1,29 @@
+/* -----------------------------------------------
+/* Author: Daniel Petersen  - danielpetersen.ca
+/* MIT license: http://opensource.org/licenses/MIT
+/* GitHub: github.com/dpet
+/* v1.0.0
+/* ----------------------------------------------- */
+
 
 function kaleido_start(parent_div, image_path, config = {}){
 
-	let zoom = config.hasOwnProperty('zoom') ? config.zoom : 1.6;
-	let rotation = config.hasOwnProperty('start_angle') ? config.start_angle : 0;
-	let speed = config.hasOwnProperty('speed') ? config.speed : 1;
+	let zoom = config.hasOwnProperty('zoom') ? parseFloat(config.zoom) : 1.6;
+	let rotation = config.hasOwnProperty('start_angle') ? parseInt(config.start_angle) : 0;
+	let speed = config.hasOwnProperty('speed') ? parseFloat(config.speed) : 1;
 
-	let horizontal_images = config.hasOwnProperty('horizontal_images') ? config.horizontal_images : 2;
-	let vertical_images = config.hasOwnProperty('vertical_images') ? config.vertical_images : 2;
-	let total_images = horizontal_images * vertical_images
+	let horizontal_num = config.hasOwnProperty('horizontal_num') ? parseInt(config.horizontal_num) : 4;
+	let vertical_num = config.hasOwnProperty('vertical_num') ? parseInt(config.vertical_num) : 2;
+	let total_images = horizontal_num * vertical_num
 
-	let canvas_width, canvas_height, imgScaledWidth;
+	let imgScaledWidth, holder;
 	let canvasses = []
 	let img = new Image();
 
 	set_image(image_path);
 
-	canvas_width = parent_div.getBoundingClientRect().width / horizontal_images
-	canvas_height = parent_div.getBoundingClientRect().height / vertical_images
+	let canvas_width = parent_div.getBoundingClientRect().width / horizontal_num
+	let canvas_height = parent_div.getBoundingClientRect().height / vertical_num
 
 	create_canvases()
 	start()
@@ -41,21 +48,27 @@ function kaleido_start(parent_div, image_path, config = {}){
 	}
 
 	function start(){
-		setInterval(function(){
-			rotation += speed/3000;
-			window.requestAnimationFrame(draw_image);
-		},
-		1000/40);
+		window.requestAnimationFrame(draw_image);
 	};
 
-	function draw_image(){
+	function draw_image(timestamp){
+		rotation += speed/3000;
+
+		if(typeof start_time === 'undefined') start_time = timestamp;
+  		var progress = timestamp - start_time;
+
+  		start_time = timestamp;
+
 		// looks at the canvasses position to decide how it gets flipped
 		for (let a=0; a<total_images; a++){
-			let left = a % horizontal_images % 2 == 0
-			let top = Math.floor(a/horizontal_images) % 2 == 0
+			let left = a % horizontal_num % 2 == 0
+			let top = Math.floor(a/horizontal_num) % 2 == 0
 
 			draw_context(canvasses[a].context, left, top)
 		}
+
+		if (!holder.getAttribute('data-stop'))
+			window.requestAnimationFrame(draw_image);
 	}
 
 	// draws to an individual canvas
@@ -99,6 +112,5 @@ function kaleido_start(parent_div, image_path, config = {}){
 			imgScaledWidth = canvas_height * img.width / img.height;
 		}
 	}
-
 }
 

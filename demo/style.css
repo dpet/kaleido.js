@@ -1,17 +1,29 @@
 
-#control{
+#control_form{
 	position: absolute;
-	top: 20px;
+	top: 40px;
 	right: 40px;
 	display: flex;
 	flex-flow: column;
 	width: 200px;
+	padding: 20px;
+	background: rgba(0, 0, 0, .8);
 }
 
-#control > *{
+.label{
+	color: white;
+}
+
+#control_form > *{
 	margin-bottom: 20px;
 }
 
-.button{
-
+#dot{
+	position: absolute;
+	top: 34px;
+	right: 34px;
+	height: 20px;
+	width: 20px;
+	background: #075;
+	border-radius: 50%;
 }
