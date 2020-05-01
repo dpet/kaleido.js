@@ -23,10 +23,18 @@ function apply_changes(event){
 		event.preventDefault();
 	let config = {}
 
-	if (horizontal_num.value)
+	if (horizontal_num.value){
+		if (horizontal_num.value > 25)
+			horizontal_num.value = 25
+
 		config.horizontal_num = horizontal_num.value
-	if (vertical_num.value)
+	}
+	if (vertical_num.value){
+		if (vertical_num.value > 20)
+			vertical_num.value = 20
+
 		config.vertical_num = vertical_num.value
+	}
 	if (zoom_input.value)
 		config.zoom = zoom_input.value
 	if (speed_input.value)
