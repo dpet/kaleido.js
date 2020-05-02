@@ -21,9 +21,15 @@ This is a simple script that adds a kaleidoscope effect to a div. Just a pass th
 </script>
 ```
 
-## Notes
+## links
 
 See https://www.danielpetersen.ca/kaleido for a demo project that lets you experiment with different arrangements. 
+
+A simple page https://www.danielpetersen.ca/flower
+
+Another one https://www.danielpetersen.ca/cloud
+
+## Notes
 
 The image used should be square, the extra length of the longer side will be unused if not.
 

@@ -6,11 +6,28 @@
 		body{
 			margin: 0;
 		}
+		.quote{
+			position: absolute;
+			width: 100%;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			top: 0;
+			padding: 20px;
+
+			font-size: 80px;
+			color: white;
+			font-family: sans-serif;
+			text-shadow: 0px 0px 10px #000000;
+			box-sizing: border-box;
+		}
 	</style>
 </head>
 <body>
 
 	<div id="kaleido_1" style="width:100%; height:100vh;"></div>
+	<div class="quote" id="quote"></div>
 
     <script src="../kaleido.js"></script>
     <script>
@@ -23,6 +40,20 @@
 				vertical_num: 2,
 			})
 		})
+
+		var i = 0;
+		var txt = 'Bloom where you are planted.';
+		var speed = 40;
+
+		setTimeout(typeWriter, 1000);
+
+		function typeWriter() {
+		  if (i < txt.length) {
+		    document.getElementById("quote").innerHTML += txt.charAt(i);
+		    i++;
+		    setTimeout(typeWriter, speed);
+		  }
+		}
     </script>
 </body>
 </html>
