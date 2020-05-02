@@ -23,7 +23,7 @@ This is a simple script that adds a kaleidoscope effect to a div. Just a pass th
 
 ## Notes
 
-See https://www.danielpetersen.ca/koleido for a demo project that lets you experiment with different arrangements. 
+See https://www.danielpetersen.ca/kaleido for a demo project that lets you experiment with different arrangements. 
 
 The image used should be square, the extra length of the longer side will be unused if not.
 
