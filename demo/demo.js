@@ -42,7 +42,7 @@ function apply_changes(event){
 	if (start_angle.value)
 		config.start_angle = start_angle.value
 
-	let image_path = '../images/' + image_select.value + '.jpeg'
+	let image_path = './images/' + image_select.value + '.jpeg'
 
 	let holder = parent_div.children[0]
 	if (holder){
