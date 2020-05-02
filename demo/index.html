@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82413688-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-82413688-1');
+	</script>
+		
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<title>Kaleido</title>
 
 	<link rel="stylesheet" type="text/css" href="bulma.min.css">
@@ -13,7 +25,7 @@
 	<form id="control_form">
 		<div>
 			<label class="label">Image</label>
-			<div class="select is-fullwidth">
+			<div class="select is-fullwidth is-small">
 			  <select id="image_select">
 			    <option value="board">board</option>
 			    <option value="cloud">cloud</option>
@@ -36,42 +48,48 @@
 		<div class="field">
 		  <label class="label">Horizontal #</label>
 		  <div class="control">
-		    <input class="input" id="horizontal_num" type="number" placeholder="2" value="4">
+		    <input class="input is-small" id="horizontal_num" type="number" placeholder="2" value="4">
 		  </div>
 		</div>
 
 		<div class="field">
 		  <label class="label">Vertical #</label>
 		  <div class="control">
-		    <input class="input" id="vertical_num" type="number" placeholder="2" value="2">
+		    <input class="input is-small" id="vertical_num" type="number" placeholder="2" value="2">
 		  </div>
 		</div>
 
 		<div class="field">
 		  <label class="label">Speed</label>
 		  <div class="control">
-		    <input class="input" id="speed_input" type="text" placeholder="1" value="1">
+		    <input class="input is-small" id="speed_input" type="text" placeholder="1" value="1">
 		  </div>
 		</div>
 
 		<div class="field">
 		  <label class="label">Zoom</label>
 		  <div class="control">
-		    <input class="input" id="zoom_input" type="text" placeholder="1.6" value="1.6">
+		    <input class="input is-small" id="zoom_input" type="text" placeholder="1.6" value="1.6">
 		  </div>
 		</div>
 
 		<div class="field">
 		  <label class="label">Start Angle</label>
 		  <div class="control">
-		    <input class="input" id="start_angle" type="text" placeholder="angle" value="0">
+		    <input class="input is-small" id="start_angle" type="text" placeholder="angle" value="0">
 		  </div>
 		</div>
+
+		<button class="button is-primary is-outlined is-small" id="apply_button" type="submit">Apply</button>
 		
 		<br>
-		<button class="button" id="apply_button" type="submit">Apply</button>
-		<a class="github_link" href="https://github.com/dpet/kaleido" target="_blank">code</a>
+
+		<div class="links level">
+			<a class="github_link" href="https://github.com/dpet/kaleido" target="_blank">code</a>
+			<a class="github_link" href="https://www.danielpetersen.ca">developer</a>
+		</div>
 	</form>
+
 
 	<div id="dot"></div>
 

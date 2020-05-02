@@ -1,37 +1,59 @@
 
 #control_form{
 	position: absolute;
-	top: 40px;
-	right: 40px;
+	top: 0px;
+	right: 0px;
+	height: 400px;
+	width: 300px;
 	display: flex;
-	flex-flow: column;
-	width: 200px;
+	flex-flow: column wrap;
+	
 	padding: 20px;
 	background: rgba(0, 0, 0, .8);
 }
+
 
 .label{
 	color: white;
 }
 
+#apply_button{
+	margin-top: 114px;
+}
+
 #control_form > *{
 	margin-bottom: 20px;
+	margin-left: 10px;
+	width: 110px;
 }
 
 #dot{
 	position: absolute;
-	top: 34px;
-	right: 34px;
+	top: 10px;
+	right: 10px;
 	height: 20px;
 	width: 20px;
-	background: #075;
+	background: #007050;
 	border-radius: 50%;
+	border: 2px solid #00a080;
 }
 
-.github_link{
-	float: right;
+.links{
+	position: absolute;
+	bottom: -10px;
+	left: 0;
+	display: flex;
+	width: 100% !important;
+	justify-content: flex-start;
+}
+
+.links a{
 	color: #aaaaff;
 	font-size: 18px;
 	text-align: left;
-	margin-bottom: 0 !important;
+	margin: 0 20px !important;
+}
+
+.links a:hover{
+	color: #8888ff;
 }
