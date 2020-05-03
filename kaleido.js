@@ -16,14 +16,13 @@ function kaleido_start(parent_div, image_path, config = {}){
 	let vertical_num = config.hasOwnProperty('vertical_num') ? parseInt(config.vertical_num) : 2;
 	let total_images = horizontal_num * vertical_num
 
-	let imgScaledWidth, holder;
+	let imgScaledWidth, holder, canvas_width, canvas_height;
 	let canvasses = []
 	let img = new Image();
 
 	set_image(image_path);
 
-	let canvas_width = parent_div.getBoundingClientRect().width / horizontal_num
-	let canvas_height = parent_div.getBoundingClientRect().height / vertical_num
+	window.addEventListener('resize', set_canvas_sizes);
 
 	create_canvases()
 	start()
@@ -39,11 +38,21 @@ function kaleido_start(parent_div, image_path, config = {}){
 		for (let a=0; a<total_images; a++){
 			canvas = document.createElement('canvas')
 			let context = canvas.getContext("2d")
-			canvas.width = canvas_width
-			canvas.height = canvas_height
 
 			canvasses.push({canvas, context});
 			holder.appendChild(canvas);
+		}
+
+		set_canvas_sizes();
+	}
+
+	function set_canvas_sizes(){
+		canvas_width = parent_div.getBoundingClientRect().width / horizontal_num
+		canvas_height = parent_div.getBoundingClientRect().height / vertical_num
+
+		for (let a=0; a<total_images; a++){
+			canvasses[a].canvas.width = canvas_width
+			canvasses[a].canvas.height = canvas_height
 		}
 	}
 
