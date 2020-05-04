@@ -29,6 +29,8 @@ A simple page https://www.danielpetersen.ca/flower
 
 Another one https://www.danielpetersen.ca/cloud
 
+Another one https://www.danielpetersen.ca/liquid
+
 ## Notes
 
 The image used should be square, the extra length of the longer side will be unused if not.
