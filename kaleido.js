@@ -38,6 +38,7 @@ function kaleido_start(parent_div, image_path, config = {}){
 		for (let a=0; a<total_images; a++){
 			canvas = document.createElement('canvas')
 			let context = canvas.getContext("2d")
+			canvas.style.flexGrow='1';
 
 			canvasses.push({canvas, context});
 			holder.appendChild(canvas);
@@ -47,8 +48,18 @@ function kaleido_start(parent_div, image_path, config = {}){
 	}
 
 	function set_canvas_sizes(){
-		canvas_width = parent_div.getBoundingClientRect().width / horizontal_num
-		canvas_height = parent_div.getBoundingClientRect().height / vertical_num
+
+		styling=getComputedStyle(parent_div, null);
+		topBorder=styling.getPropertyValue('border-top-width');
+		rightBorder=styling.getPropertyValue('border-right-width');
+		bottomBorder=styling.getPropertyValue('border-bottom-width');
+		leftBorder=styling.getPropertyValue('border-left-width');
+
+		pWidth = parent_div.getBoundingClientRect().width - parseInt(rightBorder) - parseInt(leftBorder)
+		pHeight = parent_div.getBoundingClientRect().height - parseInt(topBorder) - parseInt(bottomBorder)
+
+		canvas_width = pWidth / horizontal_num
+		canvas_height =  pHeight / vertical_num
 
 		for (let a=0; a<total_images; a++){
 			canvasses[a].canvas.width = canvas_width

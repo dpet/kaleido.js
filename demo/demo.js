@@ -1,5 +1,7 @@
 
 let parent_div = document.getElementById('kaleido_1')
+let parent_div_2 = document.getElementById('kaleido_2')
+let used_parent_div = parent_div;
 
 let image_select = document.getElementById('image_select')
 
@@ -12,6 +14,11 @@ let start_angle = document.getElementById('start_angle')
 let form = document.getElementById('control_form')
 form.addEventListener('submit', apply_changes)
 image_select.addEventListener('change', apply_changes)
+
+let fullscreen_button = document.getElementById('fullscreen')
+fullscreen_button.addEventListener('click', toggle_fullscreen)
+
+let fullscreen = true;
 
 let show_button = document.getElementById('dot')
 show_button.addEventListener('click', toggle_control)
@@ -44,13 +51,14 @@ function apply_changes(event){
 
 	let image_path = './images/' + image_select.value + '.jpeg'
 
-	let holder = parent_div.children[0]
+	holder = used_parent_div.children[0]
+
 	if (holder){
 		holder.setAttribute('data-stop', 'true');
 		holder.remove();
 	}
 
-	kaleido_start(parent_div, image_path, config)
+	kaleido_start(used_parent_div, image_path, config)
 }
 
 function toggle_control(){
@@ -62,4 +70,24 @@ function toggle_control(){
 		form.style.display = 'flex'
 		show_button.style.opacity = '1'
 	}
+}
+
+function toggle_fullscreen(e){
+	e.preventDefault();
+
+	if (fullscreen){
+		parent_div.style.display = 'none'
+		parent_div_2.style.display = 'block'
+		used_parent_div = parent_div_2
+		fullscreen_button.innerHTML = 'Inner'
+	}
+	else{
+		parent_div.style.display = 'block'
+		parent_div_2.style.display = 'none'
+		used_parent_div = parent_div
+		fullscreen_button.innerHTML = 'Fullscreen'
+	}
+
+	fullscreen = !fullscreen;
+	apply_changes()
 }

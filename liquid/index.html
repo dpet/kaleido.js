@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82413688-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-82413688-1');
+	</script>
+		
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<title>Kaleido</title>
+	<style>
+		body{
+			margin: 0;
+			height: 100vh;
+			width: 100%;
+			background-color: #f6f6f6;
+			background-image: url("data:image/svg+xml,%3Csvg width='32' height='64' viewBox='0 0 32 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 28h20V16h-4v8H4V4h28v28h-4V8H8v12h4v-8h12v20H0v-4zm12 8h20v4H16v24H0v-4h12V36zm16 12h-4v12h8v4H20V44h12v12h-4v-8zM0 36h8v20H0v-4h4V40H0v-4z' fill='%235a8378' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+		}
+		#kaleido_1{
+			border: 2px solid black;
+			border-radius: 20px;
+			overflow: hidden;
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+		}
+	</style>
+</head>
+<body>
+
+	<div id="kaleido_1" style="width:60vw; height:80vh;"></div>
+
+    <script src="../kaleido.js"></script>
+    <script>
+    	window.addEventListener('DOMContentLoaded', (event) => {
+			kaleido_start(document.getElementById('kaleido_1'), './liquid.jpeg', {
+				zoom: 1.5,
+				start_angle: 0,
+				speed: 4,
+				horizontal_num: 8,
+				vertical_num: 4,
+			})
+		})
+    </script>
+</body>
+</html>

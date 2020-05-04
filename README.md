@@ -39,5 +39,5 @@ The animation continues to run when the div isn't on the screen, this should be 
 
 There are no mobile fallbacks so you need to add your own, ie. put an image in the div instead of calling kaleido_start().
 
-The zoom property in the config object may be necessary to stretch the image over the full area of the canvas. If there is white space then increase the zoom. 
+The zoom property in the config object may be necessary to stretch the image over the full area of the canvas. If there is white space then increase the zoom. If you zoom too much ten the image will be pixelated. 
 
