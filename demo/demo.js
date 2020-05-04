@@ -9,6 +9,7 @@ let horizontal_num = document.getElementById('horizontal_num')
 let vertical_num = document.getElementById('vertical_num')
 let speed_input = document.getElementById('speed_input')
 let zoom_input = document.getElementById('zoom_input')
+let pulse_input = document.getElementById('pulse_input')
 let start_angle = document.getElementById('start_angle')
 
 let form = document.getElementById('control_form')
@@ -44,6 +45,8 @@ function apply_changes(event){
 	}
 	if (zoom_input.value)
 		config.zoom = zoom_input.value
+	if (pulse_input.value)
+		config.pulse = pulse_input.value
 	if (speed_input.value)
 		config.speed = speed_input.value
 	if (start_angle.value)

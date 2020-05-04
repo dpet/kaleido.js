@@ -9,7 +9,7 @@ body{
 	position: absolute;
 	top: 0px;
 	right: 0px;
-	height: 400px;
+	height: 480px;
 	width: 300px;
 	display: flex;
 	flex-flow: column wrap;

@@ -9,8 +9,12 @@
 function kaleido_start(parent_div, image_path, config = {}){
 
 	let zoom = config.hasOwnProperty('zoom') ? parseFloat(config.zoom) : 1.6;
+	let applied_zoom = zoom;
+	let zoom_counter = 0;
+
 	let rotation = config.hasOwnProperty('start_angle') ? parseInt(config.start_angle) : 0;
 	let speed = config.hasOwnProperty('speed') ? parseFloat(config.speed) : 1;
+	let pulse = config.hasOwnProperty('pulse') ? parseFloat(config.pulse) : 0;
 
 	let horizontal_num = config.hasOwnProperty('horizontal_num') ? parseInt(config.horizontal_num) : 4;
 	let vertical_num = config.hasOwnProperty('vertical_num') ? parseInt(config.vertical_num) : 2;
@@ -73,6 +77,7 @@ function kaleido_start(parent_div, image_path, config = {}){
 
 	function draw_image(timestamp){
 		rotation += speed/3000;
+		set_zoom();
 
 		if(typeof start_time === 'undefined') start_time = timestamp;
   		var progress = timestamp - start_time;
@@ -97,21 +102,21 @@ function kaleido_start(parent_div, image_path, config = {}){
 		context.clearRect(0, 0, canvas_width, canvas_height);	
 
 		if (left) {
-			hor = -zoom;
-			width_offset = canvas_width-(canvas_width-imgScaledWidth*zoom)/2;	
+			hor = -applied_zoom;
+			width_offset = canvas_width-(canvas_width-imgScaledWidth*applied_zoom)/2;	
 		}
 		else {		
-			hor = zoom;
-			width_offset = (canvas_width-imgScaledWidth*zoom)/2;
+			hor = applied_zoom;
+			width_offset = (canvas_width-imgScaledWidth*applied_zoom)/2;
 		}
 
 		if (top) {
-			vert = zoom;		
-			height_offset = (canvas_height-canvas_height*zoom)/2;
+			vert = applied_zoom;		
+			height_offset = (canvas_height-canvas_height*applied_zoom)/2;
 		}
 		else {
-			vert = -zoom;
-			height_offset = canvas_height-(canvas_height-canvas_height*zoom)/2;
+			vert = -applied_zoom;
+			height_offset = canvas_height-(canvas_height-canvas_height*applied_zoom)/2;
 		}
 
 		context.translate(width_offset, height_offset);
@@ -122,6 +127,11 @@ function kaleido_start(parent_div, image_path, config = {}){
 		context.translate(-imgScaledWidth/2, -canvas_height/2);
 		
 		context.drawImage(img, 0, 0, imgScaledWidth, canvas_height);
+	}
+
+	function set_zoom(){
+		applied_zoom = zoom + (.5 + Math.sin(zoom_counter)) / 14
+		zoom_counter += pulse / 600;
 	}
 
 	// adds a new image to canvasses
