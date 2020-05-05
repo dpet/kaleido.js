@@ -24,6 +24,8 @@ let fullscreen = true;
 let show_button = document.getElementById('dot')
 show_button.addEventListener('click', toggle_control)
 
+let apply_button = document.getElementById('apply_button')
+
 apply_changes()
 
 function apply_changes(event){

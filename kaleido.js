@@ -28,6 +28,10 @@ function kaleido_start(parent_div, image_path, config = {}){
 
 	window.addEventListener('resize', set_canvas_sizes);
 
+	let is_visible = true;
+	let observer = new IntersectionObserver((entries)=>{is_visible = entries[0].isIntersecting});
+	observer.observe(parent_div)
+
 	create_canvases()
 	start()
 
@@ -42,7 +46,7 @@ function kaleido_start(parent_div, image_path, config = {}){
 		for (let a=0; a<total_images; a++){
 			canvas = document.createElement('canvas')
 			let context = canvas.getContext("2d")
-			canvas.style.flexGrow='1';
+			canvas.style.flexGrow='2';
 
 			canvasses.push({canvas, context});
 			holder.appendChild(canvas);
@@ -78,7 +82,7 @@ function kaleido_start(parent_div, image_path, config = {}){
 
 	function draw_image(timestamp){
 
-		if(timestamp - last_timestamp > 20){
+		if(is_visible && timestamp - last_timestamp > 20){
 			rotation += speed/30;
 
 			set_zoom();
@@ -148,5 +152,6 @@ function kaleido_start(parent_div, image_path, config = {}){
 			imgScaledWidth = canvas_height * img.width / img.height;
 		}
 	}
+	
 }
 

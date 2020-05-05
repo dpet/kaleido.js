@@ -24,7 +24,7 @@ This is a simple script that adds a kaleidoscope effect to a div. Just a pass th
 
 ## config
 
-if the config object isn't passed or any of the properties aren't passes then defaults will be used;
+if the config object isn't passed or any of the properties aren't passed then defaults will be used;
 
 - zoom
 	- default: 1.6 
@@ -37,10 +37,12 @@ if the config object isn't passed or any of the properties aren't passes then de
 - speed
 	- default: 1
 	- how fast it rotates.
+	- negative rotates the oposite way.
 
 - pulse
 	- default: 0
 	- causes the image to zoom in and out smoothly. 1 is very subtle and 10 makes it very obvious.
+	- the value changes the speed that it pulses, not the amount that it zooms in
 
 - horizontal_num
 	- default: 4
@@ -66,7 +68,7 @@ The image used should be square, the extra length of the longer side will be unu
 
 Smaller images are easier on the hosts computer, I scaled the demo images to 600px x 600px.
 
-The animation continues to run when the div isn't on the screen, this should be optimized later.
+The animation stops when the div is scrolled off screen or when a different tab is visible in the browser.
 
 There are no mobile fallbacks so you need to add your own, ie. put an image in the div instead of calling kaleido_start().
 
