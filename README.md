@@ -1,6 +1,6 @@
 # kaleido
 
-This is a simple script that adds a kaleidoscope effect to a div. Just a pass the function a div, an image and a config object.
+This is a simple script that adds a kaleidoscope effect to a div. Just a pass the function a div, an image and a config object. All you need is the kaleido.js file.
 
 ## Use
 
@@ -54,13 +54,13 @@ if the config object isn't passed or any of the properties aren't passed then de
 
 ## links
 
-See https://www.danielpetersen.ca/kaleido for a demo project that lets you experiment with different arrangements. 
+See https://www.danielpetersen.ca/demo/kaleido for a demo project that lets you experiment with different arrangements. 
 
-A simple page https://www.danielpetersen.ca/flower
+A simple page https://www.danielpetersen.ca/demo/flower
 
-Another one https://www.danielpetersen.ca/cloud
+Another one https://www.danielpetersen.ca/demo/cloud
 
-Another one https://www.danielpetersen.ca/liquid
+Another one https://www.danielpetersen.ca/demo/liquid
 
 ## Notes
 
@@ -71,5 +71,7 @@ Smaller images are easier on the hosts computer, I scaled the demo images to 600
 The animation stops when the div is scrolled off screen or when a different tab is visible in the browser.
 
 There are no mobile fallbacks so you need to add your own, ie. put an image in the div instead of calling kaleido_start().
+
+Scrollbars can cause issues with the sizing so adding 'overflow: hidden' to the passed in div can help.
 
 
